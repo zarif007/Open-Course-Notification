@@ -1,0 +1,45 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\errors\\.94cd75ac1dce59e8dbdf8ec9271e38f940e19862-audit.json",
+    "files": [
+        {
+            "date": 1701980187689,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\errors\\[2023-12-08-02]-error.log",
+            "hash": "48fa8b549baa7a1cef5d4c651f3ebfa706b657aa5aa85c60c872d8f0165c18d7"
+        },
+        {
+            "date": 1702067977700,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\errors\\[2023-12-09-02]-error.log",
+            "hash": "5d9467aa2bb9e2d39d5d2319242572f0d98f030db463a6f19f5419f7d523566c"
+        },
+        {
+            "date": 1702071358260,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\errors\\[2023-12-09-03]-error.log",
+            "hash": "8e66b28439242f97c6fee2beed9741b013fe0f46284fcb5558090bbf0a95adbf"
+        },
+        {
+            "date": 1702116550286,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\errors\\[2023-12-09-16]-error.log",
+            "hash": "037c2bce36208573783bf827d902d345f7594191dcfd6fbaefebd08775110f0f"
+        },
+        {
+            "date": 1702375902264,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\errors\\[2023-12-12-16]-error.log",
+            "hash": "e32478b0e7b4499077c258f328caf34a5a0f99162cc877a95e2b2db8439977db"
+        },
+        {
+            "date": 1702379523843,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\errors\\[2023-12-12-17]-error.log",
+            "hash": "0b217bb08a1e744963a5893016805fad85c34d6e532f55e58c575ee31c3f66d9"
+        },
+        {
+            "date": 1702382741526,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\errors\\[2023-12-12-18]-error.log",
+            "hash": "6a6cb519fcbbfab5dcd5bfbb9a162d96132627e7a2d523e6dfbc3284f7d8fe4f"
+        }
+    ],
+    "hashType": "sha256"
+}

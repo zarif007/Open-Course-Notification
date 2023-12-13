@@ -1,0 +1,45 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\infos\\.626c7afa42cee12ce2d28d1b285844e085f07bc5-audit.json",
+    "files": [
+        {
+            "date": 1701980187679,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\infos\\[2023-12-08-02]-info.log",
+            "hash": "ce6102b38ef8d2e2770cb53f9c606c1704857fdbb8c2cda913f3f93b7b19fc7f"
+        },
+        {
+            "date": 1702067977684,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\infos\\[2023-12-09-02]-info.log",
+            "hash": "b02d740736c64496d75c7595badb90d84608eb664eeabb93db6e2fbef1e8899d"
+        },
+        {
+            "date": 1702071358248,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\infos\\[2023-12-09-03]-info.log",
+            "hash": "4515a69917c902e800d1159cb830577e826f370aac16c081b054adcd6b0fddea"
+        },
+        {
+            "date": 1702116550263,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\infos\\[2023-12-09-16]-info.log",
+            "hash": "4475b379e80b3840461a682c84817514341e1b3bc505a1e19405c3f274c41138"
+        },
+        {
+            "date": 1702375902251,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\infos\\[2023-12-12-16]-info.log",
+            "hash": "af48960395db09abbaf7fb7458debe5c9c257737c34a8b2e20d9067a32a5ae68"
+        },
+        {
+            "date": 1702379523833,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\infos\\[2023-12-12-17]-info.log",
+            "hash": "d70186724882bbc63e5feb304db07edad40b5932f6fb60e36fc35757d87066df"
+        },
+        {
+            "date": 1702382741518,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Discuss\\logs\\winston\\infos\\[2023-12-12-18]-info.log",
+            "hash": "171ee77afaba3815fb496517143567e74cc086cb17ef20d8aa434bdc3e800981"
+        }
+    ],
+    "hashType": "sha256"
+}
