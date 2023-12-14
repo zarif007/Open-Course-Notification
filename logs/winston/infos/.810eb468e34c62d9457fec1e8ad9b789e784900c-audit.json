@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Notification\\logs\\winston\\infos\\.810eb468e34c62d9457fec1e8ad9b789e784900c-audit.json",
+    "files": [
+        {
+            "date": 1702551219268,
+            "name": "C:\\Users\\Zarif\\Desktop\\projects\\Open-Course-Notification\\logs\\winston\\infos\\[2023-12-14-16]-info.log",
+            "hash": "99805b23715f26f9bb560534363f50e5fb92c0cb1da31377328d0a509bfb0bdb"
+        }
+    ],
+    "hashType": "sha256"
+}
