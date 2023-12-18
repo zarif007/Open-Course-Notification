@@ -7,7 +7,7 @@ import httpStatus from 'http-status';
 const insertIntoDB = catchAsync(async (req: Request, res: Response) => {
   const result = await NotificationService.insertIntoDB(req.body);
   sendResponse(res, {
-    statusCode: httpStatus.OK,
+    statusCode: httpStatus.CREATED,
     success: true,
     message: 'Notification created successfully',
     data: result,
@@ -15,7 +15,8 @@ const insertIntoDB = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
-  const result = await NotificationService.getAllFromDB();
+  const { userId } = req.params;
+  const result = await NotificationService.getAllFromDB(userId);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -24,7 +25,19 @@ const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const makeAllRead = catchAsync(async (req: Request, res: Response) => {
+  const { userId } = req.params;
+  await NotificationService.makeAllRead(userId);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Notification read successfully',
+    data: null,
+  });
+});
+
 export const NotificationController = {
   insertIntoDB,
   getAllFromDB,
+  makeAllRead,
 };

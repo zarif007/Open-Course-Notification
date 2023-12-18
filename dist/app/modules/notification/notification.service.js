@@ -23,15 +23,35 @@ const insertIntoDB = (data) => __awaiter(void 0, void 0, void 0, function* () {
     });
     return result;
 });
-const getAllFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
+const getAllFromDB = (userId) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield prisma_1.default.notification.findMany({
+        where: {
+            receiver: {
+                has: userId,
+            },
+            isRead: false,
+        },
         include: {
             category: true,
         },
     });
     return result;
 });
+const makeAllRead = (userId) => __awaiter(void 0, void 0, void 0, function* () {
+    yield prisma_1.default.notification.updateMany({
+        where: {
+            receiver: {
+                has: userId,
+            },
+            isRead: false,
+        },
+        data: {
+            isRead: true,
+        },
+    });
+});
 exports.NotificationService = {
     insertIntoDB,
     getAllFromDB,
+    makeAllRead,
 };
