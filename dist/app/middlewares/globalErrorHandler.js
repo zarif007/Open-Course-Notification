@@ -10,11 +10,10 @@ const client_1 = require("@prisma/client");
 const zod_1 = require("zod");
 const handleClientError_1 = __importDefault(require("../../errors/handleClientError"));
 const handleZodError_1 = __importDefault(require("../../errors/handleZodError"));
-const logger_1 = require("../../shared/logger");
 const globalErrorHandler = (error, req, res, next) => {
     envConfig_1.default.node_env === 'development'
         ? console.log(`🐱‍🏍 globalErrorHandler ~~`, { error })
-        : logger_1.errorLogger.error(`🐱‍🏍 globalErrorHandler ~~`, error);
+        : console.log(`🐱‍🏍 globalErrorHandler ~~`, error);
     let statusCode = 500;
     let message = 'Something went wrong !';
     let errorMessages = [];

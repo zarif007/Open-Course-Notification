@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./app"));
 const envConfig_1 = __importDefault(require("./config/envConfig"));
-const logger_1 = require("./shared/logger");
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
         const server = app_1.default.listen(envConfig_1.default.PORT, () => {
@@ -29,7 +28,7 @@ function bootstrap() {
             process.exit(1);
         };
         const unexpectedErrorHandler = (error) => {
-            logger_1.errorLogger.error(error);
+            console.log(error);
             exitHandler();
         };
         process.on('uncaughtException', unexpectedErrorHandler);

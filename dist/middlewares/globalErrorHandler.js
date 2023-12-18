@@ -16,7 +16,7 @@ const envBasedLogger = error => {
   envConfig_1.default.node_env === 'development'
     ? // eslint-disable-next-line no-console
       console.log('Global Error Handler', error)
-    : logger_1.errorLogger.error('Global error handler', error);
+    : logger_1.console.log('Global error handler', error);
 };
 const globalErrorHandler = (err, req, res, next) => {
   envBasedLogger(err);
