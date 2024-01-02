@@ -17,15 +17,15 @@ const catchAsync_1 = __importDefault(require("../../../shared/catchAsync"));
 const notification_service_1 = require("./notification.service");
 const sendResponse_1 = __importDefault(require("../../../shared/sendResponse"));
 const http_status_1 = __importDefault(require("http-status"));
-const insertIntoDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield notification_service_1.NotificationService.insertIntoDB(req.body);
-    (0, sendResponse_1.default)(res, {
-        statusCode: http_status_1.default.CREATED,
-        success: true,
-        message: 'Notification created successfully',
-        data: result,
-    });
-}));
+// const insertIntoDB = catchAsync(async (req: Request, res: Response) => {
+//   const result = await NotificationService.insertIntoDB(req.body);
+//   sendResponse(res, {
+//     statusCode: httpStatus.CREATED,
+//     success: true,
+//     message: 'Notification created successfully',
+//     data: result,
+//   });
+// });
 const getAllFromDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userId } = req.params;
     const result = yield notification_service_1.NotificationService.getAllFromDB(userId);
@@ -47,7 +47,7 @@ const makeAllRead = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, vo
     });
 }));
 exports.NotificationController = {
-    insertIntoDB,
+    // insertIntoDB,
     getAllFromDB,
     makeAllRead,
 };

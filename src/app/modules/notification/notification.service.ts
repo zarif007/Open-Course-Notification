@@ -1,26 +1,25 @@
 import prisma from '../../../shared/prisma';
 import INotification from './notification.interface';
 
-const insertIntoDB = async (data: INotification): Promise<INotification> => {
-  const result = await prisma.notification.create({
-    data,
-    include: {
-      category: true,
-    },
-  });
-  return result;
-};
+// const insertIntoDB = async (data: INotification): Promise<INotification> => {
+//   const result = await prisma.notification.create({
+//     data,
+//     include: {
+//       category: true,
+//     },
+//   });
+//   return result;
+// };
 
 const getAllFromDB = async (userId: string): Promise<INotification[]> => {
   const result = await prisma.notification.findMany({
     where: {
-      receiver: {
-        has: userId,
-      },
+      receiver: userId,
       isRead: false,
     },
     include: {
       category: true,
+      initiator: true,
     },
   });
 
@@ -30,9 +29,7 @@ const getAllFromDB = async (userId: string): Promise<INotification[]> => {
 const makeAllRead = async (userId: string) => {
   await prisma.notification.updateMany({
     where: {
-      receiver: {
-        has: userId,
-      },
+      receiver: userId,
       isRead: false,
     },
     data: {
@@ -42,7 +39,7 @@ const makeAllRead = async (userId: string) => {
 };
 
 export const NotificationService = {
-  insertIntoDB,
+  // insertIntoDB,
   getAllFromDB,
   makeAllRead,
 };

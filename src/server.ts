@@ -2,11 +2,16 @@
 import { Server } from 'http';
 import app from './app';
 import envConfig from './config/envConfig';
+import SocketService from './app/modules/socket/socket';
 
 async function bootstrap() {
   const server: Server = app.listen(envConfig.PORT, () => {
     console.log(`Server running on PORT ${envConfig.PORT}`);
   });
+
+  const socketService = new SocketService();
+  socketService.io.attach(server);
+  socketService.initListeners();
 
   const exitHandler = () => {
     if (server) {

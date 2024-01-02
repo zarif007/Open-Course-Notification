@@ -9,8 +9,11 @@
 
 type INotification = {
   id: number;
-  initiator: string[];
-  receiver: string[];
+  initiator: {
+    name: string;
+    image: string;
+  };
+  receiver: string;
   link: string;
   text?: string | null;
   isRead: boolean;

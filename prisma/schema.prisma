@@ -17,11 +17,18 @@ model Category {
   @@map("category")
 }
 
+model Initiator {
+  id           Int            @id @default(autoincrement())
+  name         String
+  image        String
+  Notification Notification[]
+}
+
 model Notification {
   id Int @id @default(autoincrement())
 
-  initiator String[]
-  receiver  String[]
+  initiator Initiator @relation(fields: [initiatorId], references: [id])
+  receiver  String
 
   link String
 
@@ -32,8 +39,9 @@ model Notification {
   categoryId Int
   category   Category? @relation(fields: [categoryId], references: [id])
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  initiatorId Int
 
   @@map("notification")
 }

@@ -14,25 +14,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NotificationService = void 0;
 const prisma_1 = __importDefault(require("../../../shared/prisma"));
-const insertIntoDB = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield prisma_1.default.notification.create({
-        data,
-        include: {
-            category: true,
-        },
-    });
-    return result;
-});
+// const insertIntoDB = async (data: INotification): Promise<INotification> => {
+//   const result = await prisma.notification.create({
+//     data,
+//     include: {
+//       category: true,
+//     },
+//   });
+//   return result;
+// };
 const getAllFromDB = (userId) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield prisma_1.default.notification.findMany({
         where: {
-            receiver: {
-                has: userId,
-            },
+            receiver: userId,
             isRead: false,
         },
         include: {
             category: true,
+            initiator: true,
         },
     });
     return result;
@@ -40,9 +39,7 @@ const getAllFromDB = (userId) => __awaiter(void 0, void 0, void 0, function* () 
 const makeAllRead = (userId) => __awaiter(void 0, void 0, void 0, function* () {
     yield prisma_1.default.notification.updateMany({
         where: {
-            receiver: {
-                has: userId,
-            },
+            receiver: userId,
             isRead: false,
         },
         data: {
@@ -51,7 +48,7 @@ const makeAllRead = (userId) => __awaiter(void 0, void 0, void 0, function* () {
     });
 });
 exports.NotificationService = {
-    insertIntoDB,
+    // insertIntoDB,
     getAllFromDB,
     makeAllRead,
 };

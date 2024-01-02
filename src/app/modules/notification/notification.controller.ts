@@ -4,15 +4,15 @@ import { NotificationService } from './notification.service';
 import sendResponse from '../../../shared/sendResponse';
 import httpStatus from 'http-status';
 
-const insertIntoDB = catchAsync(async (req: Request, res: Response) => {
-  const result = await NotificationService.insertIntoDB(req.body);
-  sendResponse(res, {
-    statusCode: httpStatus.CREATED,
-    success: true,
-    message: 'Notification created successfully',
-    data: result,
-  });
-});
+// const insertIntoDB = catchAsync(async (req: Request, res: Response) => {
+//   const result = await NotificationService.insertIntoDB(req.body);
+//   sendResponse(res, {
+//     statusCode: httpStatus.CREATED,
+//     success: true,
+//     message: 'Notification created successfully',
+//     data: result,
+//   });
+// });
 
 const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
   const { userId } = req.params;
@@ -37,7 +37,7 @@ const makeAllRead = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const NotificationController = {
-  insertIntoDB,
+  // insertIntoDB,
   getAllFromDB,
   makeAllRead,
 };

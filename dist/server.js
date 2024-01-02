@@ -14,11 +14,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./app"));
 const envConfig_1 = __importDefault(require("./config/envConfig"));
+const socket_1 = __importDefault(require("./app/modules/socket/socket"));
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
         const server = app_1.default.listen(envConfig_1.default.PORT, () => {
             console.log(`Server running on PORT ${envConfig_1.default.PORT}`);
         });
+        const socketService = new socket_1.default();
+        socketService.io.attach(server);
+        socketService.initListeners();
         const exitHandler = () => {
             if (server) {
                 server.close(() => {
