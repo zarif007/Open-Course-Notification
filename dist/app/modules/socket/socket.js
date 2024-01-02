@@ -43,7 +43,6 @@ class SocketService {
         sub.on('message', (channel, notification) => __awaiter(this, void 0, void 0, function* () {
             io.to(channel).emit('message', notification);
             yield (0, kafka_1.produceNotification)(notification);
-            console.log('from kafka broker');
         }));
     }
     get io() {

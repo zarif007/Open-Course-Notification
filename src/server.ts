@@ -3,6 +3,7 @@ import { Server } from 'http';
 import app from './app';
 import envConfig from './config/envConfig';
 import SocketService from './app/modules/socket/socket';
+import { startNotificationConsumer } from './app/modules/kafka/kafka';
 
 async function bootstrap() {
   const server: Server = app.listen(envConfig.PORT, () => {
@@ -12,6 +13,8 @@ async function bootstrap() {
   const socketService = new SocketService();
   socketService.io.attach(server);
   socketService.initListeners();
+
+  startNotificationConsumer();
 
   const exitHandler = () => {
     if (server) {

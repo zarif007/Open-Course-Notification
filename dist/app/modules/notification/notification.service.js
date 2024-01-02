@@ -15,13 +15,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.NotificationService = void 0;
 const prisma_1 = __importDefault(require("../../../shared/prisma"));
 // const insertIntoDB = async (data: INotification): Promise<INotification> => {
-//   const result = await prisma.notification.create({
-//     data,
-//     include: {
-//       category: true,
-//     },
-//   });
-//   return result;
+// const result = await prisma.notification.create({
+//   data,
+//   include: {
+//     category: true,
+//   },
+// });
+// return result;
 // };
 const getAllFromDB = (userId) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield prisma_1.default.notification.findMany({
@@ -31,7 +31,6 @@ const getAllFromDB = (userId) => __awaiter(void 0, void 0, void 0, function* () 
         },
         include: {
             category: true,
-            initiator: true,
         },
     });
     return result;

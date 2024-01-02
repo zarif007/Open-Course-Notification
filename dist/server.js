@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./app"));
 const envConfig_1 = __importDefault(require("./config/envConfig"));
 const socket_1 = __importDefault(require("./app/modules/socket/socket"));
+const kafka_1 = require("./app/modules/kafka/kafka");
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
         const server = app_1.default.listen(envConfig_1.default.PORT, () => {
@@ -23,6 +24,7 @@ function bootstrap() {
         const socketService = new socket_1.default();
         socketService.io.attach(server);
         socketService.initListeners();
+        (0, kafka_1.startNotificationConsumer)();
         const exitHandler = () => {
             if (server) {
                 server.close(() => {

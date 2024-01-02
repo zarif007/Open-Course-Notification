@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 import { Kafka, Message, Producer, logLevel } from 'kafkajs';
 import envConfig from '../../../config/envConfig';
+import prisma from '../../../shared/prisma';
 
 // Kafka configuration for secured cluster
 const kafka = new Kafka({
@@ -37,6 +39,34 @@ export const produceNotification = async (notification: string) => {
   });
 
   return true;
+};
+
+export const startNotificationConsumer = async () => {
+  console.log('Consumer is running');
+  const consumer = kafka.consumer({ groupId: 'default' });
+  await consumer.connect();
+  await consumer.subscribe({ topic: 'NOTIFICATION', fromBeginning: true });
+
+  await consumer.run({
+    autoCommit: true,
+    eachMessage: async ({ message, pause }) => {
+      if (!message.value) return;
+      const data = JSON.parse(message.value?.toString()).message;
+      try {
+        await prisma.notification.create({
+          data,
+          include: {
+            category: true,
+          },
+        });
+      } catch (err) {
+        pause();
+        setTimeout(() => {
+          consumer.resume([{ topic: 'NOTIFICATION' }]);
+        }, 60 * 1000);
+      }
+    },
+  });
 };
 
 export default kafka;

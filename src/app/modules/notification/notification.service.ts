@@ -1,17 +1,16 @@
 import prisma from '../../../shared/prisma';
-import INotification from './notification.interface';
 
 // const insertIntoDB = async (data: INotification): Promise<INotification> => {
-//   const result = await prisma.notification.create({
-//     data,
-//     include: {
-//       category: true,
-//     },
-//   });
-//   return result;
+// const result = await prisma.notification.create({
+//   data,
+//   include: {
+//     category: true,
+//   },
+// });
+// return result;
 // };
 
-const getAllFromDB = async (userId: string): Promise<INotification[]> => {
+const getAllFromDB = async (userId: string) => {
   const result = await prisma.notification.findMany({
     where: {
       receiver: userId,
@@ -19,7 +18,6 @@ const getAllFromDB = async (userId: string): Promise<INotification[]> => {
     },
     include: {
       category: true,
-      initiator: true,
     },
   });
 

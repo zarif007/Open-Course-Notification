@@ -13,6 +13,7 @@ type INotification = {
     name: string;
     image: string;
   };
+
   receiver: string;
   link: string;
   text?: string | null;
