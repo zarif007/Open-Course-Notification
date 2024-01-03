@@ -61,19 +61,20 @@ const startNotificationConsumer = () => __awaiter(void 0, void 0, void 0, functi
     yield consumer.run({
         autoCommit: true,
         eachMessage: ({ message, pause }) => __awaiter(void 0, void 0, void 0, function* () {
-            var _a;
             if (!message.value)
                 return;
-            const data = JSON.parse((_a = message.value) === null || _a === void 0 ? void 0 : _a.toString()).message;
             try {
-                yield prisma_1.default.notification.create({
+                const data = JSON.parse(message.value.toString()).message;
+                const res = yield prisma_1.default.notification.create({
                     data,
                     include: {
                         category: true,
                     },
                 });
+                console.log(res);
             }
             catch (err) {
+                console.error(err);
                 pause();
                 setTimeout(() => {
                     consumer.resume([{ topic: 'NOTIFICATION' }]);

@@ -19,6 +19,7 @@ let producer: Producer | null = null;
 
 export async function createProducer() {
   if (producer) return producer;
+
   const _producer = kafka.producer();
   await _producer.connect();
   producer = _producer;
@@ -51,15 +52,18 @@ export const startNotificationConsumer = async () => {
     autoCommit: true,
     eachMessage: async ({ message, pause }) => {
       if (!message.value) return;
-      const data = JSON.parse(message.value?.toString()).message;
+
       try {
-        await prisma.notification.create({
+        const data = JSON.parse(message.value.toString()).message;
+        const res = await prisma.notification.create({
           data,
           include: {
             category: true,
           },
         });
+        console.log(res);
       } catch (err) {
+        console.error(err);
         pause();
         setTimeout(() => {
           consumer.resume([{ topic: 'NOTIFICATION' }]);
