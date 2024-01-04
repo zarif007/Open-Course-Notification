@@ -13,7 +13,7 @@ import prisma from '../../../shared/prisma';
 const getAllFromDB = async (userId: string) => {
   const result = await prisma.notification.findMany({
     where: {
-      receiver: userId,
+      receiver: { equals: userId },
       isRead: false,
     },
     include: {
