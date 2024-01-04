@@ -26,7 +26,6 @@ const kafka = new kafkajs_1.Kafka({
         username: envConfig_1.default.Upstash_kafka_rest_username,
         password: envConfig_1.default.Upstash_kafka_rest_password,
     },
-    logLevel: kafkajs_1.logLevel.ERROR,
 });
 let producer = null;
 function createProducer() {

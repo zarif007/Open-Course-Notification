@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { Kafka, Message, Producer, logLevel } from 'kafkajs';
+import { Kafka, Message, Producer } from 'kafkajs';
 import envConfig from '../../../config/envConfig';
 import prisma from '../../../shared/prisma';
 
@@ -12,7 +12,6 @@ const kafka = new Kafka({
     username: envConfig.Upstash_kafka_rest_username,
     password: envConfig.Upstash_kafka_rest_password,
   },
-  logLevel: logLevel.ERROR,
 });
 
 let producer: Producer | null = null;
