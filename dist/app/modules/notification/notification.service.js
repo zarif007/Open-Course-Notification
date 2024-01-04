@@ -26,7 +26,7 @@ const prisma_1 = __importDefault(require("../../../shared/prisma"));
 const getAllFromDB = (userId) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield prisma_1.default.notification.findMany({
         where: {
-            receiver: { equals: userId },
+            receiver: userId,
             isRead: false,
         },
         include: {
